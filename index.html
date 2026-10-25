@@ -639,7 +639,7 @@
 
         addTacticalMarker(sectors.ukraine.lat, sectors.ukraine.lon, "HEADQUARTERS", 0xff3333);
         addTacticalMarker(sectors.middleeast.lat, sectors.middleeast.lon, "TRAINING CENTER", 0xffaa00);
-        addTacticalMarker(sectors.vema.lat, sectors.vema.lon, "GREENLAND", 0xff3333);
+        addTacticalMarker(sectors.vema.lat, sectors.vema.lon, "GREENLAND", 0x48ad3b);
 
         const arcParticles = [];
         function createTrajectoryArc(startSec, endSec, colorHex = 0xff3333) {
@@ -657,9 +657,9 @@
             //arcParticles.push({ particle, curve, progress: Math.random() });
         }
 
-        createTrajectoryArc(sectors.ukraine, sectors.vema, 0xff3333);
+        createTrajectoryArc(sectors.ukraine, sectors.vema, 0x48ad3b);
         createTrajectoryArc(sectors.middleeast, sectors.vema, 0xffaa00);
-        createTrajectoryArc(sectors.ukraine, sectors.middleeast, 0x48ad3b);
+        createTrajectoryArc(sectors.ukraine, sectors.middleeast, 0xff3333);
 
         let currentTargetLocalPos = null;
         let isLockedToTarget = false;
