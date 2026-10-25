@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GOS FENIKS // OPERATIONAL MIL-SPEC TABLET</title>
+    <title>GOS FENIKS - ATAK</title>
     
     <!-- Google Fonts & Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -189,7 +189,7 @@
             <div class="flex items-center space-x-2">
                 <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                 <div>
-                    <h1 class="font-orbitron text-xs md:text-base font-black tracking-wider text-white">GOS FENIKS <span class="text-cyan-400">// TABLET v5.5</span></h1>
+                    <h1 class="font-orbitron text-xs md:text-base font-black tracking-wider text-white">GOS FENIKS <span class="text-cyan-400">// TABLET v1.0</span></h1>
                     <p class="text-[8px] md:text-[10px] text-cyan-400 opacity-80">CENTRUM OPERACJI MIL-SPEC</p>
                 </div>
             </div>
@@ -245,16 +245,16 @@
 
                     <div class="space-y-1.5">
                         <button class="btn-tactical active w-full p-2 md:p-3 rounded text-left text-[11px] md:text-xs font-bold" onclick="selectSector('ukraine', this)">
-                            <span class="truncate">[01] SEKTOR: UKRAINA / EU ŚRODKOWA</span>
-                            <span class="text-[9px] bg-red-950 text-red-400 border border-red-500 px-1 rounded ml-1 flex-shrink-0">HQ A.T.V.</span>
+                            <span class="truncate">[01] SEKTOR: UKRAINA</span>
+                            <span class="text-[9px] bg-red-950 text-red-400 border border-red-500 px-1 rounded ml-1 flex-shrink-0">OBÓZ OPERACYJNY</span>
                         </button>
                         <button class="btn-tactical w-full p-2 md:p-3 rounded text-left text-[11px] md:text-xs font-bold" onclick="selectSector('middleeast', this)">
                             <span class="truncate">[02] SEKTOR: BLISKI WSCHÓD</span>
-                            <span class="text-[9px] bg-amber-950 text-amber-400 border border-amber-500 px-1 rounded ml-1 flex-shrink-0">LOGISTYKA</span>
+                            <span class="text-[9px] bg-amber-950 text-amber-400 border border-amber-500 px-1 rounded ml-1 flex-shrink-0">OBÓZ SZKOLENIOWY</span>
                         </button>
-                        <button class="btn-tactical danger w-full p-2 md:p-3 rounded text-left text-[11px] md:text-xs font-bold" onclick="selectSector('vema', this)">
-                            <span class="truncate">[03] VEMA BAY (GRENLANDIA)</span>
-                            <span class="text-[9px] bg-red-600 text-white font-black px-1 rounded animate-pulse ml-1 flex-shrink-0">CEL GŁÓWNY</span>
+                        <button class="btn-tactical border-green-500 w-full p-2 md:p-3 rounded text-left text-[11px] md:text-xs font-bold" onclick="selectSector('vema', this)">
+                            <span class="truncate">[03] SEKTOR: GRENLANDIA</span>
+                            <span class="text-[9px] bg-green-950 text-green-400 border border-green-500 px-1 rounded ml-1 flex-shrink-0">???</span>
                         </button>
                         <button class="btn-tactical w-full p-1.5 md:p-2.5 rounded text-left text-[10px] md:text-xs font-bold text-cyan-300 opacity-80" onclick="selectSector('global', this)">
                             <span>[0] WIDOK GLOBALNY (RESET)</span>
@@ -270,11 +270,11 @@
                     <div id="intel-title" class="font-orbitron text-xs md:text-sm font-bold text-white mb-0.5">SEKTOR ALPHA: UKRAINA</div>
                     <div id="intel-coords" class="text-[10px] md:text-[11px] text-cyan-400 mb-1 font-mono">48.379° N / 31.165° E</div>
                     <div id="intel-description" class="text-[10px] md:text-xs text-slate-300 leading-relaxed mb-2 max-h-20 md:max-h-28 overflow-y-auto pr-1 font-jetbrains">
-                        Główny przyczółek logistyczny i operacyjny ugrupowania A.T.V. Wykryto podziemne magazyny uzbrojenia oraz aktywność zagłuszarek radioelektronicznych (EW). Siły GOS Feniks prowadzą działania osłonowe.
+                        Główny sektor operacyjny grupy "...". Ataki skoncentrowane na zachodniej oraz środkowej Ukrainie mają na celu odcięcie dostaw i transportów opancerzonego sprzętu wojskowego na front.
                     </div>
                     <div class="border-t border-cyan-500/20 pt-1 flex justify-between items-center text-[10px]">
                         <span class="text-cyan-500">POZIOM ZAGROŻENIA:</span>
-                        <span id="intel-threat" class="font-bold text-red-400 bg-red-950/60 border border-red-500 px-1.5 py-0.5 rounded">KRYTYCZNY</span>
+                        <span id="intel-threat" class="font-bold text-red-400 bg-red-950/60 border border-red-500 px-1.5 py-0.5 rounded">WYSOKI</span>
                     </div>
                 </div>
             </div>
@@ -396,47 +396,12 @@
                     </h2>
                     <p class="text-[11px] md:text-xs text-cyan-400 mt-0.5">Wybierz operację, aby otworzyć szczegółowy briefing i cele taktyczne.</p>
                 </div>
-                <span class="text-[10px] bg-red-950 text-red-400 border border-red-500 px-2.5 py-0.5 rounded font-bold">AKTYWNY TEATR: VEMA BAY</span>
+                <span class="text-[10px] bg-red-950 text-red-400 border border-red-500 px-2.5 py-0.5 rounded font-bold">AKTYWNY TEATR: BRAK</span>
             </div>
-
-            <!-- OPERACJA 1: VEMA BAY -->
-            <details class="hud-panel rounded-lg border-l-4 border-red-500 group overflow-hidden transition-all duration-300" open>
-                <summary class="p-3.5 md:p-5 cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-800/80 hover:bg-cyan-950/20">
-                    <div class="flex items-center space-x-2">
-                        <span class="font-mono text-cyan-400 font-bold text-xs">[OP-01]</span>
-                        <h3 class="font-orbitron text-xs md:text-base font-bold text-white group-hover:text-cyan-300">OPERACJA: VEMA BAY (GRENLANDIA)</h3>
-                    </div>
-                    <div class="flex items-center space-x-2 self-end md:self-auto">
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded border bg-red-950 text-red-400 border-red-500 animate-pulse">W TRAKCIE</span>
-                        <span class="text-[10px] md:text-xs text-cyan-400">▼ POKAŻ DOKUMENT</span>
-                    </div>
-                </summary>
-                <div class="p-3 md:p-6 space-y-4 bg-[#080d14]/90">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] md:text-xs">
-                        <div class="bg-[#0e1726] p-3 rounded border border-cyan-500/30 space-y-1">
-                            <div class="text-cyan-400 font-bold border-b border-cyan-500/20 pb-1 font-orbitron">📍 PARAMETRY TEATRU</div>
-                            <div><b>Lokalizacja:</b> Vema Bay, Arktyczny Sektor Grenlandii</div>
-                            <div><b>Współrzędne:</b> 75.000° N / -42.000° W</div>
-                            <div><b>Warunki:</b> Zamieć śnieżna, trudne środowisko polarne.</div>
-                        </div>
-                        <div class="bg-[#0e1726] p-3 rounded border border-red-500/30 space-y-1">
-                            <div class="text-red-400 font-bold border-b border-red-500/20 pb-1 font-orbitron">⚠️ ZAGROŻENIE A.T.V.</div>
-                            <div><b>Cel OPFOR:</b> Podlodowy kompleks wyrzutni balistycznych.</div>
-                            <div><b>Wykryta Aktywność:</b> Przerzut sił z Sektora Ukraina i Bliskiego Wschodu.</div>
-                        </div>
-                    </div>
-                    <div class="bg-[#0b121e] p-3 md:p-4 rounded border border-emerald-500/40 space-y-1.5 text-[11px] md:text-xs">
-                        <div class="text-emerald-400 font-bold font-orbitron border-b border-emerald-500/30 pb-1">🎯 CELE GŁÓWNE DLA GOS FENIKS</div>
-                        <p>1. Skryte wniknięcie w rejon arktyczny przy użyciu osłony EW.</p>
-                        <p>2. Zniszczenie stacji przekaźnikowych wroga wzdłuż wybrzeża Vema Bay.</p>
-                        <p>3. Przejęcie dokumentacji i zabezpieczenie kompleksu wyrzutni A.T.V.</p>
-                    </div>
-                </div>
-            </details>
 
             <div class="hud-panel p-3.5 md:p-5 rounded-lg border-l-4 border-amber-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                 <div class="flex items-center space-x-2">
-                    <span class="font-mono text-amber-400 font-bold text-xs">[OP-02]</span>
+                    <span class="font-mono text-amber-400 font-bold text-xs">[OP-01]</span>
                     <h3 class="font-orbitron text-xs md:text-base font-bold text-gray-300">OPERACJA OCZEKUJĄCA</h3>
                 </div>
                 <span class="text-[9px] font-bold px-2 py-0.5 rounded border bg-amber-950 text-amber-400 border-amber-500 self-end md:self-auto">OCZEKUJE NA ZATWIERDZENIE</span>
@@ -444,35 +409,28 @@
         </div>
     </div>
 
-    <!-- VIEW 4: ZAPISY NA OPERACJE (DOSTOSOWANE DO TELEFONU) -->
+
+    <!-- VIEW 4: PODGLĄD OBSADY I PRZEKIEROWANIE DO ARKUSZA -->
     <div id="view-roster" class="tab-view hidden absolute inset-0 z-20 pt-24 md:pt-28 pb-12 px-2 md:px-6 overflow-y-auto pointer-events-auto">
-        <div class="max-w-5xl mx-auto hud-panel p-4 md:p-8 rounded-lg shadow-2xl relative font-jetbrains text-gray-300 space-y-4 md:space-y-6 my-auto border border-emerald-500/40 bg-[#0d1117]/95">
+        <div class="max-w-5xl mx-auto hud-panel p-4 md:p-8 rounded-lg shadow-2xl relative font-jetbrains text-gray-300 space-y-6 my-auto border border-emerald-500/40 bg-[#0d1117]/95">
             
+            <!-- HEADER ZAKŁADKI -->
             <div class="border-b border-gray-800 pb-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                 <div>
                     <div class="flex items-center space-x-2 text-emerald-400 text-[10px] md:text-xs font-tech tracking-widest uppercase mb-0.5">
-                        <span>[ REJESTR KADROWY & ZGŁOSZENIA ]</span><span>//</span><span>DEPT: PERSONNEL</span>
+                        <span>[ REJESTR KADROWY & PODGLĄD LIVE ]</span><span>//</span><span>DEPT: PERSONNEL</span>
                     </div>
                     <h2 class="text-xl md:text-3xl font-extrabold text-white tracking-wider uppercase font-tech glow-emerald">
-                        📝 ZAPISY NA OPERACJE
+                        📝 ZAPISY NA OPERACJĘ
                     </h2>
-                    <p class="text-gray-400 text-[10px] md:text-xs mt-0.5">Oficjalna lista mobilizacyjna operatorów GOS Feniks zsynchronizowana z bazą danych.</p>
+                    <p class="text-gray-400 text-[10px] md:text-xs mt-0.5">Sprawdź dostępność ról i przejdź do arkusza w celu dokonania wpisu.</p>
                 </div>
-                <span class="text-[9px] md:text-[11px] bg-emerald-950 text-emerald-400 border border-emerald-500 px-2.5 py-0.5 rounded font-bold animate-pulse self-start md:self-auto">
-                    ● BAZA DANYCH ONLINE
-                </span>
+                <div class="flex items-center space-x-2">
+                    <span class="text-[9px] md:text-[11px] bg-red-950 text-red-400 border border-red-500 px-2.5 py-1 rounded font-bold flex items-center space-x-1.5 transition-colors">
+                        ZAPISY NIEDOSTĘPNE</span>
+                    </button>
+                </div>
             </div>
-
-            <!-- EMBEDDED GOOGLE SHEET Z STYLEM CIEMNYM (ELASTYCZNA WYSOKOŚĆ DLA SMARTFONA) -->
-            <div class="w-full h-[55vh] md:h-[60vh] rounded-lg border border-emerald-500/30 overflow-hidden bg-black/60 shadow-inner">
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRf9NhdCAD-bovSMSoA0naZ88OyOANx3h2GEHrRuCqDJY3qX9fhVckgay5NKvRwR0Azzztcdazd9f3_/pubhtml?headers=false" class="w-full h-full border-0 invert hue-rotate-180 brightness-90 contrast-125"></iframe>
-            </div>
-
-            <div class="border-t border-gray-800 pt-3 flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] md:text-xs text-gray-400 gap-1">
-                <div>* Rejestr jest aktualizowany w czasie rzeczywistym. Prosimy o zachowanie porządku w strukturze sekcji.</div>
-                <div class="text-emerald-500 font-mono text-[10px]">STATUS: SYNC_OK // LIVE_SYSTEM</div>
-            </div>
-
         </div>
     </div>
 
@@ -484,7 +442,7 @@
                     <h2 class="text-base md:text-2xl font-bold text-white font-orbitron flex items-center space-x-2">
                         <span>📁 REGISTRUM // ARCHIWUM DOKUMENTÓW</span>
                     </h2>
-                    <p class="text-[11px] md:text-xs text-cyan-400 mt-0.5">Baza raportów przedoperacyjnych, debriefingów oraz przechwyconych materiałów.</p>
+                    <p class="text-[11px] md:text-xs text-cyan-400 mt-0.5">Baza raportów przedoperacyjnych, pooperacyjnych oraz przechwyconych materiałów.</p>
                 </div>
                 <span class="text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-500/40 px-2.5 py-0.5 rounded self-start md:self-auto">
                     KLASYFIKACJA: SECURE
@@ -499,83 +457,30 @@
                         <h3 class="font-orbitron text-xs md:text-base font-bold text-white group-hover:text-cyan-300">RAPORT PRZEDOPERACYJNY</h3>
                     </div>
                     <div class="flex items-center space-x-2 self-end md:self-auto">
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded border bg-cyan-950 text-cyan-400 border-cyan-500">GOTOWY DO EDYCJI</span>
+                        <span class="text-[9px] font-bold px-2 py-0.5 rounded border bg-cyan-950 text-cyan-400 border-cyan-500">NIEKOMPLETNY</span>
                         <span class="text-[10px] md:text-xs text-cyan-400">▼ OTWORZ</span>
                     </div>
                 </summary>
                 <div class="p-3 md:p-6 space-y-3 bg-[#080d14]/90 text-[11px] md:text-xs">
                     <div class="border-b border-cyan-500/30 pb-2 flex justify-between items-center">
                         <div>
-                            <span class="text-cyan-400 font-bold uppercase text-[9px]">[ DOSSIER PRE-MISSION ]</span>
+                            <span class="text-cyan-400 font-bold uppercase text-[9px]">[ DOKUMENT PRZEDOPERACYJNY ]</span>
                             <h4 class="text-xs md:text-base font-bold text-white font-orbitron">KARTA ROZPOZNANIA WYWIADOWCZEGO</h4>
                         </div>
                         <div class="text-right text-[9px] text-gray-400">DATA: YYYY-MM-DD | AUTOR: [GM / S2]</div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                        <div class="bg-[#0e1726] p-2.5 rounded border border-gray-800">
-                            <span class="text-cyan-500 block text-[9px] uppercase font-bold">REJON DZIAŁAŃ:</span>
-                            <span class="text-gray-200">[Wpisz rejon / mapę]</span>
-                        </div>
-                        <div class="bg-[#0e1726] p-2.5 rounded border border-gray-800">
-                            <span class="text-amber-500 block text-[9px] uppercase font-bold">SIŁY OPFOR:</span>
-                            <span class="text-gray-200">[Wpisz przewidywane siły wroga]</span>
-                        </div>
-                        <div class="bg-[#0e1726] p-2.5 rounded border border-gray-800">
-                            <span class="text-red-500 block text-[9px] uppercase font-bold">PRIORYTET WYWIADU:</span>
-                            <span class="text-gray-200">[np. Pozyskanie dysków / Przesłuchanie]</span>
-                        </div>
-                    </div>
                     <div class="bg-[#0b121e] p-3 rounded border border-gray-800 space-y-1">
                         <span class="text-emerald-400 font-bold font-orbitron block border-b border-gray-800 pb-0.5 text-[10px] md:text-xs">> PAKIET ROZPOZNAWCZY & WARUNKI</span>
-                        <p class="text-gray-300 leading-relaxed">[TUTAJ WPISZ SZCZEGÓŁOWE INFORMACJE PRZED OPERACJĄ]</p>
+                        <p class="text-gray-300 leading-relaxed">[DOKUMENT OCZEKUJE NA UZUPEŁNIENIE PRZEZ WYWIAD OPERACYJNY]</p>
                     </div>
                 </div>
             </details>
-
-            <!-- SZABLON DOKUMENTU 2 -->
-            <details class="hud-panel rounded-lg border-l-4 border-emerald-500 group overflow-hidden transition-all duration-300">
-                <summary class="p-3.5 md:p-5 cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-800/80 hover:bg-emerald-950/20">
-                    <div class="flex items-center space-x-2">
-                        <span class="font-mono text-emerald-400 font-bold text-xs">[DOC-POST-01]</span>
-                        <h3 class="font-orbitron text-xs md:text-base font-bold text-white group-hover:text-emerald-300">RAPORT POOPERACYJNY (DEBRIEFING AAR)</h3>
-                    </div>
-                    <div class="flex items-center space-x-2 self-end md:self-auto">
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded border bg-emerald-950 text-emerald-400 border-emerald-500">DO UZUPEŁNIENIA</span>
-                        <span class="text-[10px] md:text-xs text-emerald-400">▼ OTWORZ</span>
-                    </div>
-                </summary>
-                <div class="p-3 md:p-6 space-y-3 bg-[#080d14]/90 text-[11px] md:text-xs">
-                    <div class="border-b border-emerald-500/30 pb-2 flex justify-between items-center">
-                        <div>
-                            <span class="text-emerald-400 font-bold uppercase text-[9px]">[ AFTER ACTION REPORT ]</span>
-                            <h4 class="text-xs md:text-base font-bold text-white font-orbitron">PODSUMOWANIE DZIAŁAŃ W POLU</h4>
-                        </div>
-                        <div class="text-right text-[9px] text-gray-400">STATUS: OTWARTY</div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div class="bg-[#0e1726] p-2.5 rounded border border-gray-800">
-                            <span class="text-emerald-400 block text-[9px] uppercase font-bold">WYNIK MISJI:</span>
-                            <span class="text-gray-200">[SUKCES / PARTIAL SUCCESS / PORAŻKA]</span>
-                        </div>
-                        <div class="bg-[#0e1726] p-2.5 rounded border border-gray-800">
-                            <span class="text-red-400 block text-[9px] uppercase font-bold">STRATY WŁASNE / OPFOR:</span>
-                            <span class="text-gray-200">[Wpisz bilans starcia]</span>
-                        </div>
-                    </div>
-                    <div class="bg-[#0b121e] p-3 rounded border border-gray-800 space-y-1">
-                        <span class="text-cyan-400 font-bold font-orbitron block border-b border-gray-800 pb-0.5 text-[10px] md:text-xs">> ZEBRANE MATERIAŁY & KONSEKWENCJE</span>
-                        <p class="text-gray-300 leading-relaxed">[TUTAJ WPISZ CO ZAMIERZASZ PRZEKAZAĆ GRACZOM PO OPERACJI]</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-    </div>
 
     <!-- Bottom Footer -->
     <footer class="absolute bottom-1 left-2 right-2 md:bottom-3 md:left-4 md:right-4 z-20 pointer-events-none flex justify-center">
         <div class="hud-panel p-1.5 px-3 md:p-2.5 md:px-6 rounded-full text-center pointer-events-auto">
             <p class="text-[9px] md:text-xs text-cyan-300 font-semibold tracking-widest italic">
-                "Cogito, ergo sum — Zwycięstwo kocha przygotowanych." <span class="text-slate-400 font-normal opacity-70 hidden sm:inline">| GOS FENIKS TACTICAL TABLET v5.5</span>
+                "Veni, vidi, vici - Przybyłem, zobaczyłem, zwyciężyłem" <span class="text-slate-400 font-normal opacity-70 hidden sm:inline">| GOS FENIKS TACTICAL TABLET v1.0</span>
             </p>
         </div>
     </footer>
@@ -614,7 +519,7 @@
         // --- Live Polish Clock ---
         function updateClock() {
             const now = new Date();
-            const timeStr = now.toLocaleTimeString('pl-PL', { timeZone: 'Europe/Warsaw', hour12: false }) + ' PLT';
+            const timeStr = now.toLocaleTimeString('pl-PL', { timeZone: 'Europe/Warsaw', hour12: false }) + ' - A';
             const desktopClock = document.getElementById('live-clock');
             const mobileClock = document.getElementById('live-clock-mobile');
             if (desktopClock) desktopClock.innerText = timeStr;
@@ -625,10 +530,10 @@
 
         // --- Sector Coordinate Definitions ---
         const sectors = {
-            ukraine: { lat: 48.379, lon: 31.165, title: "SEKTOR ALPHA: UKRAINA", code: "SEC_UKR_01", threat: "KRYTYCZNY", desc: "Główny przyczółek logistyczny i operacyjny ugrupowania A.T.V." },
-            middleeast: { lat: 29.311, lon: 47.481, title: "SEKTOR BRAVO: BLISKI WSCHÓD", code: "SEC_ME_04", threat: "WYSOKI", desc: "Węzeł pozyskiwania nielegalnego finansowania i dostaw komponentów balistycznych." },
-            vema: { lat: 75.000, lon: -42.000, title: "SEKTOR VEMA BAY: GRENLANDIA", code: "SEC_VEMA_SILO", threat: "EXTREME THREAT", desc: "CEL GŁÓWNY CAMPAIGN. Tajna, podlodowa baza wyrzutni strategicznych A.T.V." },
-            global: { lat: 40.000, lon: 10.000, title: "TEATR DZIAŁAŃ GLOBALNYCH", code: "GLOBAL_OVERVIEW", threat: "MONITOROWANIE", desc: "Widok strategiczny zarysowujący linie zaopatrzenia sił A.T.V." }
+            ukraine: { lat: 48.379, lon: 31.165, title: "SEKTOR ALPHA: UKRAINA", code: "SEC_UKR_01", threat: "WYSOKI", desc: "Główny sektor operacyjny grupy (...). Ataki skoncentrowane na zachodniej oraz środkowej Ukrainie mają na celu odcięcie dostaw i transportów opancerzonego sprzętu wojskowego na front." },
+            middleeast: { lat: 29.311, lon: 47.481, title: "SEKTOR BRAVO: BLISKI WSCHÓD", code: "SEC_ME_04", threat: "UMIARKOWANY", desc: "Prawdopodobny obóz szkoleniowy jednostek specjalnych ugrupowania (...)." },
+            vema: { lat: 75.000, lon: -42.000, title: "SEKTOR CHARLIE: GRENLANDIA", code: "SEC_GREEN_SILO", threat: "ZNIKOMY", desc: "Bardzo niska aktywność jednostek nieznanego pochodzenia." },
+            global: { lat: 40.000, lon: 10.000, title: "TEATR DZIAŁAŃ GLOBALNYCH", code: "GLOBAL_OVERVIEW", threat: "MONITOROWANIE", desc: "Wywiad stale monitoruje zachowanie ugrupowania (...), jakikolwiek ruch zostanie zgłoszony." }
         };
 
         // --- Three.js & Globe Engine Setup ---
@@ -732,9 +637,9 @@
             globeGroup.add(sprite);
         }
 
-        addTacticalMarker(sectors.ukraine.lat, sectors.ukraine.lon, "A.T.V. UKRAINE HQ", 0xff3333);
-        addTacticalMarker(sectors.middleeast.lat, sectors.middleeast.lon, "MIDDLE EAST LOGISTICS", 0xffaa00);
-        addTacticalMarker(sectors.vema.lat, sectors.vema.lon, "TARGET: VEMA BAY", 0xff3333);
+        addTacticalMarker(sectors.ukraine.lat, sectors.ukraine.lon, "HEADQUARTERS", 0xff3333);
+        addTacticalMarker(sectors.middleeast.lat, sectors.middleeast.lon, "TRAINING CENTER", 0xffaa00);
+        addTacticalMarker(sectors.vema.lat, sectors.vema.lon, "GREENLAND", 0xff3333);
 
         const arcParticles = [];
         function createTrajectoryArc(startSec, endSec, colorHex = 0xff3333) {
@@ -745,14 +650,16 @@
 
             const curve = new THREE.QuadraticBezierCurve3(p1, mid, p2);
             globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(50)), new THREE.LineBasicMaterial({ color: colorHex, transparent: true, opacity: 0.75 })));
-
-            const particle = new THREE.Mesh(new THREE.SphereGeometry(1.0, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            globeGroup.add(particle);
-            arcParticles.push({ particle, curve, progress: Math.random() });
+            
+            // latajaca kulka
+            //const particle = new THREE.Mesh(new THREE.SphereGeometry(1.0, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+            //globeGroup.add(particle);
+            //arcParticles.push({ particle, curve, progress: Math.random() });
         }
 
         createTrajectoryArc(sectors.ukraine, sectors.vema, 0xff3333);
         createTrajectoryArc(sectors.middleeast, sectors.vema, 0xffaa00);
+        createTrajectoryArc(sectors.ukraine, sectors.middleeast, 0x48ad3b);
 
         let currentTargetLocalPos = null;
         let isLockedToTarget = false;
@@ -847,6 +754,86 @@
             animate();
             selectSector('ukraine', document.querySelector('.btn-tactical'));
         };
+
+
+
+
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzN3rRCKzD4gr5L7tz96Jy5h_Plac36Fvtp_GlRdkqjOPizBcf6pigz-1-YxEo-tHgilA/exec";
+
+        function fetchSheetRoster() {
+            const spinner = document.getElementById('sync-spinner');
+            const statusIndicator = document.getElementById('sync-status');
+            if (spinner) spinner.classList.remove('hidden');
+            if (statusIndicator) statusIndicator.innerText = "● POBIERANIE...";
+
+            fetch(GOOGLE_SCRIPT_URL)
+                .then(res => res.json())
+                .then(data => {
+                    if (spinner) spinner.classList.add('hidden');
+                    if (statusIndicator) statusIndicator.innerText = "● AUTO-SYNC (10s)";
+
+                    // Wyrenderuj kafelki sekcji z aktualną obsadą
+                    renderSquadsVisual(data);
+                })
+                .catch(err => {
+                    console.error("Błąd pobierania danych:", err);
+                    if (spinner) spinner.classList.add('hidden');
+                    if (statusIndicator) statusIndicator.innerText = "✕ BŁĄD SYNCHRONIZACJI";
+                });
+        }
+
+        function renderSquadsVisual(data) {
+            const container = document.getElementById('squads-container');
+            const countElem = document.getElementById('sheet-roster-count');
+            if (!container) return;
+
+            container.innerHTML = '';
+            let totalSlots = 0;
+            let occupiedSlots = 0;
+
+            if (!data.squadsConfig || data.squadsConfig.length === 0) {
+                container.innerHTML = `<div class="text-center text-gray-500 italic py-4">Brak sekcji w arkuszu.</div>`;
+                return;
+            }
+
+            data.squadsConfig.forEach(squad => {
+                let squadDiv = document.createElement('div');
+                squadDiv.className = "bg-[#0b121e] border border-cyan-500/20 rounded p-2.5 space-y-1.5";
+
+                let header = document.createElement('div');
+                header.className = "text-[11px] font-orbitron font-bold text-cyan-400 border-b border-cyan-500/20 pb-1 flex justify-between";
+                header.innerHTML = `<span>${squad.name}</span>`;
+                squadDiv.appendChild(header);
+
+                let slotsGrid = document.createElement('div');
+                slotsGrid.className = "grid grid-cols-2 gap-1.5 pt-1";
+
+                squad.slots.forEach(slot => {
+                    totalSlots++;
+                    if (slot.assigned) occupiedSlots++;
+
+                    let slotBox = document.createElement('div');
+                    slotBox.className = `p-1.5 rounded text-[10px] flex justify-between items-center border ${slot.assigned ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300' : 'bg-[#0e1726] border-gray-800 text-gray-400'}`;
+                    slotBox.innerHTML = `
+                        <span class="font-mono font-bold">${slot.code} <span class="text-gray-500">(${slot.role})</span></span>
+                        <span class="truncate max-w-[110px] ${slot.assigned ? 'text-white font-bold' : 'text-gray-600 italic'}">${slot.assigned || 'Wolny'}</span>
+                    `;
+                    slotsGrid.appendChild(slotBox);
+                });
+
+                squadDiv.appendChild(slotsGrid);
+                container.appendChild(squadDiv);
+            });
+
+            if (countElem) countElem.innerText = `SLOTY: ${occupiedSlots} / ${totalSlots}`;
+        }
+
+        // Inicjalizacja przy starcie + Timer automatycznego odświeżania co 10 sekund
+        window.addEventListener('load', () => {
+            fetchSheetRoster();
+            setInterval(fetchSheetRoster, 10000); // 10000 ms = 10 sekund
+        });
     </script>
 </body>
 </html>
