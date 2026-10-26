@@ -164,6 +164,27 @@
             animation: spin 1s linear infinite;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Zabezpieczenie przed wychodzeniem tabel i paneli poza ekran mobile */
+        .hud-panel {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Responsywne dopasowanie siatki zapisów/obsady na telefonach */
+        @media (max-width: 767px) {
+            #view-roster .grid-cols-5 {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            /* Mniejszy padding na mobile żeby nic nie zachodziło */
+            .tab-view {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+                padding-top: 5rem !important;
+            }
+        }
     </style>
 </head>
 <body class="w-full h-full relative overflow-hidden grid-bg">
@@ -410,26 +431,79 @@
     </div>
 
 
-    <!-- VIEW 4: PODGLĄD OBSADY I PRZEKIEROWANIE DO ARKUSZA -->
-    <div id="view-roster" class="tab-view hidden absolute inset-0 z-20 pt-24 md:pt-28 pb-12 px-2 md:px-6 overflow-y-auto pointer-events-auto">
-        <div class="max-w-5xl mx-auto hud-panel p-4 md:p-8 rounded-lg shadow-2xl relative font-jetbrains text-gray-300 space-y-6 my-auto border border-emerald-500/40 bg-[#0d1117]/95">
+<!-- VIEW 4: ZAPISY (ARKUSZ ZEWNĘTRZNY + PODGLĄD OBSADY) -->
+    <div id="view-roster" class="tab-view hidden absolute inset-0 z-20 pt-20 md:pt-28 pb-16 px-2 md:px-6 overflow-y-auto pointer-events-auto">
+        <div class="max-w-5xl mx-auto hud-panel p-3 md:p-8 rounded-lg shadow-2xl relative font-jetbrains text-gray-300 space-y-4 md:space-y-6 my-auto border border-emerald-500/40 bg-[#0d1117]/95">
             
             <!-- HEADER ZAKŁADKI -->
             <div class="border-b border-gray-800 pb-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                 <div>
-                    <div class="flex items-center space-x-2 text-emerald-400 text-[10px] md:text-xs font-tech tracking-widest uppercase mb-0.5">
+                    <div class="flex items-center space-x-2 text-emerald-400 text-[9px] md:text-xs font-tech tracking-widest uppercase mb-0.5">
                         <span>[ REJESTR KADROWY & PODGLĄD LIVE ]</span><span>//</span><span>DEPT: PERSONNEL</span>
                     </div>
-                    <h2 class="text-xl md:text-3xl font-extrabold text-white tracking-wider uppercase font-tech glow-emerald">
+                    <h2 class="text-lg md:text-3xl font-extrabold text-white tracking-wider uppercase font-tech glow-emerald">
                         📝 ZAPISY NA OPERACJĘ
                     </h2>
                     <p class="text-gray-400 text-[10px] md:text-xs mt-0.5">Sprawdź dostępność ról i przejdź do arkusza w celu dokonania wpisu.</p>
                 </div>
-                <div class="flex items-center space-x-2">
-                    <span class="text-[9px] md:text-[11px] bg-red-950 text-red-400 border border-red-500 px-2.5 py-1 rounded font-bold flex items-center space-x-1.5 transition-colors">
-                        ZAPISY NIEDOSTĘPNE</span>
+                <div class="flex items-center space-x-2 self-end md:self-auto">
+                    <span id="sync-status" class="text-[9px] text-cyan-400 font-mono animate-pulse">● AUTO-SYNC (10s)</span>
+                    <button onclick="fetchSheetRoster()" class="text-[9px] md:text-[11px] bg-emerald-950 hover:bg-emerald-900 text-emerald-400 border border-emerald-500 px-2.5 py-1 rounded font-bold flex items-center space-x-1.5 transition-colors">
+                        <span id="sync-spinner" class="animate-spin hidden">🔄</span>
+                        <span>🔄 ODŚWIEŻ</span>
                     </button>
                 </div>
+            </div>
+
+            <!-- SIATKA: PRZYCISK DO ARKUSZA (LEWA) + PODGLĄD SEKCJI (PRAWA) -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 md:gap-6">
+                
+                <!-- LEWA KOLUMNA: PRZEKIEROWANIE DO ARKUSZA -->
+                <div class="lg:col-span-2 space-y-3 md:space-y-4 bg-[#080d14]/90 p-3.5 md:p-5 rounded border border-cyan-500/30 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-cyan-400 font-bold font-orbitron text-xs border-b border-cyan-500/20 pb-2 flex justify-between items-center">
+                            <span>> PANEL ZAPISÓW</span>
+                            <span class="text-amber-400 text-[10px]">ARKUSZ ZEWNĘTRZNY</span>
+                        </div>
+                        
+                        <p class="text-[11px] md:text-xs text-gray-300 leading-relaxed">
+                            Wpisy na konkretne sloty i role odbywają się bezpośrednio w oficjalnym arkuszu operacyjnym. Kliknij poniższy przycisk, aby otworzyć dokument.
+                        </p>
+
+                        <div class="bg-[#0e1726] border border-cyan-500/20 p-2.5 md:p-3 rounded text-[10px] md:text-[11px] text-cyan-300 space-y-1">
+                            <div>ℹ️ <b>Instrukcja:</b></div>
+                            <div class="text-gray-400">1. Otwórz arkusz i wybierz swój nick w kolumnie operatorów.</div>
+                            <div class="text-gray-400">2. Przypisz się do wybranego slotu w sekcji.</div>
+                            <div class="text-gray-400">3. Status na tablecie zaktualizuje się automatycznie.</div>
+                        </div>
+                    </div>
+
+                    <a href="https://docs.google.com/spreadsheets/d/13KmWePPIXqElBEEcb6rYRz9cO0jaMQi_pu0V_B0vMi0/edit?usp=sharing" target="_blank" 
+                       class="btn-tactical active w-full p-2.5 md:p-3 rounded font-orbitron text-[11px] md:text-xs font-bold text-center flex justify-center items-center space-x-2 shadow-lg mt-2">
+                        <span>🔗 OTWÓRZ ARKUSZ ZAPISÓW</span>
+                    </a>
+                </div>
+
+                <!-- PRAWA KOLUMNA: PODGLĄD OBSADY SEKCJI -->
+                <div class="lg:col-span-3 space-y-2 bg-[#080d14]/90 p-3 md:p-4 rounded border border-emerald-500/30 flex flex-col justify-between">
+                    <div>
+                        <div class="text-emerald-400 font-bold font-orbitron text-xs border-b border-emerald-500/20 pb-2 flex justify-between items-center mb-2.5">
+                            <span>📋 AKTUALNA OBSADA SEKCJI</span>
+                            <span id="sheet-roster-count" class="text-cyan-300 font-mono text-[10px] md:text-[11px]">SLOTY: 0 / 0</span>
+                        </div>
+
+                        <!-- Kontener z płynnym przewijaniem na telefonach -->
+                        <div class="max-h-[38vh] md:max-h-[44vh] overflow-y-auto pr-1 space-y-2.5" id="squads-container">
+                            <div class="text-center text-gray-500 italic py-4 text-xs">Ładowanie struktury z Arkusza Google...</div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-800/80 pt-2 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 text-[9px] md:text-[10px] text-gray-500">
+                        <span>* Widok odświeża się automatycznie co 10 sekund.</span>
+                        <span class="text-emerald-400 font-mono">LIVE_SYNC_ACTIVE</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
