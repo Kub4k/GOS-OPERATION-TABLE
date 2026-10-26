@@ -187,7 +187,7 @@
         }
         /* Główny kontener widoków – wymuszenie bezpiecznego marginesu góra/dół na telefonach i PC */
         .tab-view {
-            padding-top: 200px !important; /* Odstęp od górnego menu */
+            padding-top: 105px !important; /* Odstęp od górnego menu */
             padding-bottom: 75px !important; /* Odstęp od dolnej stopki */
             overflow-y: auto !important;
             -webkit-overflow-scrolling: touch;
@@ -195,7 +195,7 @@
 
         @media (max-width: 767px) {
             .tab-view {
-                padding-top: 95px !important;
+                padding-top: 135px !important;
                 padding-bottom: 70px !important;
                 padding-left: 8px !important;
                 padding-right: 8px !important;
@@ -263,8 +263,8 @@
     </header>
 
     <!-- VIEW 1: GLOBE CONTROLS & INTEL HUD -->
-    <div id="view-globe" class="tab-view block absolute inset-0 z-20 pointer-events-none">
-        <div class="absolute top-[95px] md:top-28 left-2 right-2 md:left-4 md:w-96 flex flex-col space-y-2 pointer-events-auto bottom-[70px] md:bottom-auto overflow-y-auto pr-1">
+    <div id="view-globe" class="tab-view block">
+        <div class="absolute top-[130px] md:top-28 left-2 right-2 md:left-4 z-20 md:w-96 flex flex-col space-y-2 pointer-events-auto max-h-[60vh] md:max-h-[75vh] overflow-y-auto">
             <button id="drawer-toggle-btn" class="md:hidden hud-panel p-2 rounded-lg flex justify-between items-center text-[11px] font-bold text-cyan-400" onclick="toggleMobileDrawer()">
                 <span class="flex items-center space-x-1.5">
                     <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
