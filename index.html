@@ -1112,9 +1112,24 @@
         controls.enableDamping = true;
         controls.dampingFactor = 0.05;
         controls.rotateSpeed = 0.5;
+        controls.enableZoom = true;
+        controls.zoomSpeed = 1.0;
+        controls.enablePan = true;
+        controls.screenSpacePanning = false;
         controls.minDistance = 95;
         controls.maxDistance = 450;
         controls.target.set(0, 0, 0);
+
+        controls.addEventListener('start', () => {
+            const distance = camera.position.distanceTo(controls.target);
+            const minDistance = controls.minDistance; // 95
+            
+            // Im bliżej minimalnego dystansu (maksymalnego przybliżenia), tym bardziej agresywnie obniżamy czułość
+            const zoomFactor = (distance - minDistance) / (300 - minDistance);
+            controls.rotateSpeed = Math.max(0.1, Math.min(0.6, Math.pow(zoomFactor, 1.5) * 0.6));
+        });
+
+        
 
         function latLonToVector3(lat, lon, radius = GLOBE_RADIUS) {
             const phi = (90 - lat) * (Math.PI / 180);
@@ -1302,9 +1317,6 @@
             requestAnimationFrame(animate);
             if (!isGlobeActive) return;
 
-            const distance = camera.position.distanceTo(controls.target);
-            controls.rotateSpeed = Math.max(0.15, Math.min(0.5, distance / 350));
-
             globeGroup.rotation.y += 0.0008;
 
             if (isLockedToTarget && currentTargetLocalPos) {
@@ -1474,7 +1486,7 @@
     </script>
     <script>
         // Ochrona przed podglądem kodu i kopiowaniem
-        document.addEventListener('contextmenu', event => event.preventDefault());
+   //     document.addEventListener('contextmenu', event => event.preventDefault());
 
         document.addEventListener('keydown', function(event) {
             if (
